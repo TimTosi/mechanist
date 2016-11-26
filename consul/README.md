@@ -1,4 +1,4 @@
-# Redis Docker
+# Consul Docker
 
 ## Overview
 
