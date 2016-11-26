@@ -1,4 +1,4 @@
-![TheMechanist](assets/mechanist-logo.png)
+![TheMechanist](assets/mechanist-logo-640-400.png)
 
 ## What is The Mechanist ?
 The Mechanist is a colletion of Dockerfiles and Composefiles for various tools
