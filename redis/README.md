@@ -33,8 +33,8 @@ Let's say you would like to change the port the redis server listens to:
 
 ![Redis-Override](../assets/gifs/redis/redis-override.gif)
 
-Nevertheless, you would have to specify ALL arguments in command line, and that
-is not really practical.
+Nevertheless, you would have to specify TONS of arguments in command line, and
+that is not really practical.
 
 That is why you should directly use the Compose file instead.
 
