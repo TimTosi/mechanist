@@ -31,7 +31,7 @@ RUN mkdir -p /var/db/redis/ \
 EXPOSE 6379 26379
 
 # Container entry point.
-ENTRYPOINT /usr/local/bin/redis-server
+ENTRYPOINT [ "/usr/local/bin/redis-server" ]
 
 # Entry point arguments.
 # NOTE: Override CMD instruction for slave and sentinel containers.
