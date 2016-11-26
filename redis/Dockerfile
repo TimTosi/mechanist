@@ -31,12 +31,11 @@ RUN mkdir -p /var/db/redis/ \
 EXPOSE 6379 26379
 
 # Container entry point.
-ENTRYPOINT [ "/usr/local/bin/redis-server" ]
+ENTRYPOINT /usr/local/bin/redis-server
 
 # Entry point arguments.
 # NOTE: Override CMD instruction for slave and sentinel containers.
-CMD [ \
-    "--daemonize no", \
+CMD [ "--daemonize no", \
     "--port 6379", \
     "--bind 0.0.0.0", \
     "--timeout 0", \
@@ -72,5 +71,4 @@ CMD [ \
     "--activerehashing yes", \
     "--client-output-buffer-limit normal 0 0 0", \
     "--client-output-buffer-limit slave 256mb 64mb 60", \
-    "--client-output-buffer-limit pubsub 32mb 8mb 60", \
-]
+    "--client-output-buffer-limit pubsub 32mb 8mb 60" ]
