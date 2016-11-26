@@ -1,7 +1,7 @@
 ![TheMechanist](assets/mechanist-logo-640-400.png)
 
 ## What is The Mechanist ?
-The Mechanist is a colletion of Dockerfiles and Composefiles for various tools
+The Mechanist is a collection of Dockerfiles and Composefiles for various tools
 and purposes.
 The Dockerfiles provided here are written to be clean, lightweight, readable and
 extensible by other users according to their needs.
