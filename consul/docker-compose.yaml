@@ -1,0 +1,84 @@
+version: '2'
+services:
+    consul-01:
+        image: consul:0.0
+        entrypoint:
+            - /usr/local/bin/consul
+            - agent
+        command:
+            - -dev
+            - -bootstrap
+            - -server
+            - -data-dir=/tmp
+            - -log-level=info
+            - -client=0.0.0.0
+            - -ui
+        hostname: consul-01
+        ports:
+            - "5011:8300"
+            - "5012:8301"
+            - "5012:8301/udp"
+            - "5013:8302"
+            - "5013:8302/udp"
+            - "5014:8400"
+            - "5015:8500"
+            - "5016:8600"
+            - "5017:53"
+    consul-02:
+        image: consul:0.0
+        entrypoint:
+            - /usr/local/bin/consul
+            - agent
+        command:
+            - -dev
+            - -server
+            - -data-dir=/tmp
+            - -log-level=info
+            - -client=0.0.0.0
+            - -join=consul-01
+            - -ui
+        hostname: consul-02
+        ports:
+            - "5021:8300"
+            - "5022:8301"
+            - "5022:8301/udp"
+            - "5023:8302"
+            - "5023:8302/udp"
+            - "5024:8400"
+            - "5025:8500"
+            - "5026:8600"
+            - "5027:53"
+        depends_on:
+            - consul-01
+        links:
+            - consul-01
+    consul-03:
+        image: consul:0.0
+        entrypoint:
+            - /usr/local/bin/consul
+            - agent
+        command:
+            - -dev
+            - -server
+            - -data-dir=/tmp
+            - -log-level=info
+            - -client=0.0.0.0
+            - -join=consul-01
+            - -ui
+        hostname: consul-03
+        ports:
+            - "5031:8300"
+            - "5032:8301"
+            - "5032:8301/udp"
+            - "5033:8302"
+            - "5033:8302/udp"
+            - "5034:8400"
+            - "5035:8500"
+            - "5036:8600"
+            - "5037:53"
+        depends_on:
+            - consul-01
+            - consul-02
+        links:
+            - consul-01
+            - consul-02
