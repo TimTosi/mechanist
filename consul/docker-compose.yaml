@@ -1,5 +1,6 @@
 version: '2'
 services:
+
     consul-01:
         image: timtosi/consul:latest
         entrypoint:
@@ -24,6 +25,7 @@ services:
             - "5015:8500"
             - "5016:8600"
             - "5017:53"
+
     consul-02:
         image: timtosi/consul:latest
         entrypoint:
@@ -52,6 +54,7 @@ services:
             - consul-01
         links:
             - consul-01
+
     consul-03:
         image: timtosi/consul:latest
         entrypoint:
