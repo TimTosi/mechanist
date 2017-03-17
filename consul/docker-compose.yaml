@@ -1,7 +1,7 @@
 version: '2'
 services:
     consul-01:
-        image: consul:0.0
+        image: timtosi/consul:latest
         entrypoint:
             - /usr/local/bin/consul
             - agent
@@ -25,7 +25,7 @@ services:
             - "5016:8600"
             - "5017:53"
     consul-02:
-        image: consul:0.0
+        image: timtosi/consul:latest
         entrypoint:
             - /usr/local/bin/consul
             - agent
@@ -53,7 +53,7 @@ services:
         links:
             - consul-01
     consul-03:
-        image: consul:0.0
+        image: timtosi/consul:latest
         entrypoint:
             - /usr/local/bin/consul
             - agent
