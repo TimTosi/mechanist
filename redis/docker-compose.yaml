@@ -1,7 +1,8 @@
 version: '2'
 services:
+
     redis-01:
-        image: redis:0.0
+        image: timtosi/redis:latest
         entrypoint:
             - /usr/local/bin/redis-server
         command:
@@ -45,8 +46,9 @@ services:
         hostname: redis-01
         ports:
             - "5101:6379"
+
     redis-02:
-        image: redis:0.0
+        image: timtosi/redis:latest
         entrypoint:
             - /usr/local/bin/redis-server
         command:
@@ -94,8 +96,9 @@ services:
             - "5102:6379"
         depends_on:
             - redis-01
+
     redis-03:
-        image: redis:0.0
+        image: timtosi/redis:latest
         entrypoint:
             - /usr/local/bin/redis-server
         command:
@@ -143,8 +146,9 @@ services:
             - "5103:6379"
         depends_on:
             - redis-01
+
     redis-sentinel-01:
-        image: redis:0.0
+        image: timtosi/redis:latest
         entrypoint:
             - /usr/local/bin/redis-server
         command:
@@ -162,8 +166,9 @@ services:
             - "5201:26379"
         depends_on:
             - redis-01
+
     redis-sentinel-02:
-        image: redis:0.0
+        image: timtosi/redis:latest
         entrypoint:
             - /usr/local/bin/redis-server
         command:
@@ -181,8 +186,9 @@ services:
             - "5202:26379"
         depends_on:
             - redis-02
+
     redis-sentinel-03:
-        image: redis:0.0
+        image: timtosi/redis:latest
         entrypoint:
             - /usr/local/bin/redis-server
         command:
