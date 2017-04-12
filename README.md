@@ -13,6 +13,7 @@ This repository is intended to evolve with new files and updates.
 
 * [Consul](./consul/README.md)
 * [Redis](./redis/README.md)
+* [SQL Test](./sql/README.md)
 
 ## FAQ
 <details>
@@ -22,7 +23,7 @@ I do.
 
 <details>
 <summary>Nice thing that I can override arguments you placed in "CMD" but I
-cannot modify the ENTRYPOINT you provide.</summary>
+cannot modify the "ENTRYPOINT" you provide.</summary>
 You can override it by using the `--entrypoint` argument of `docker run`.
 More info [here](https://docs.docker.com/engine/reference/run/#/entrypoint-default-command-to-execute-at-runtime).
 </details>
