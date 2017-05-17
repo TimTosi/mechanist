@@ -8,7 +8,7 @@ environment based on Docker.
 The Dockerfile aims to be generic, easily extensible and used according to the
 user's will.
 
-## Quickstart
+## Quickstart
 
 Let's start by building the Docker Image:
 
