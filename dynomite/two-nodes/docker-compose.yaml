@@ -91,7 +91,7 @@ services:
             - --client-output-buffer-limit pubsub 32mb 8mb 60
         hostname: redis-02
         ports:
-            - "22123:22122"
+            - "22222:22122"
 
     dynomite-01:
         image: timtosi/dynomite:1.0
@@ -116,8 +116,8 @@ services:
             - --conf-file=/etc/dynomitedb/dynomite.yaml
         hostname: dynomite-02
         ports:
-            - "8111:8101"
-            - "8112:8102"
+            - "8201:8101"
+            - "8202:8102"
         volumes:
             - "${PWD}/dynomite-02.yaml:/etc/dynomitedb/dynomite.yaml"
         depends_on:
