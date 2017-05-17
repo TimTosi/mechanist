@@ -9,7 +9,7 @@ The Dockerfile aims to be generic, easily extensible and used according to the
 user's will such as a redis master, a redis [slave](https://redis.io/topics/replication)
 or a redis [sentinel](https://redis.io/topics/sentinel).
 
-## Quickstart
+## Quickstart
 
 Let's start by building the Docker Image:
 
