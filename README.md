@@ -13,7 +13,8 @@ This repository is intended to evolve with new files and updates.
 
 * [Consul](./consul/README.md)
 * [Redis](./redis/README.md)
-* [SQL Test](./sql/README.md)
+* [Dynomite](./dynomite/README.md)
+* [SQL for Test](./sql/README.md)
 
 ## FAQ
 <details>
