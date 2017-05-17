@@ -11,10 +11,10 @@ This repository is intended to evolve with new files and updates.
 
 ## Quickstart
 
-* [Consul](./consul/README.md)
-* [Redis](./redis/README.md)
-* [Dynomite](./dynomite/README.md)
-* [SQL for Test](./sql/README.md)
+* [Consul](./consul/)
+* [Redis](./redis/)
+* [Dynomite](./dynomite/)
+* [SQL for Test](./sql/)
 
 ## FAQ
 <details>
