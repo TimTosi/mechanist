@@ -1,0 +1,150 @@
+# DYNOMITE.CONF
+# --
+# This file is the default configuration file for the Dynomite services.
+#
+# All existing keys are listed here.
+# For default values, have a look at ``.
+dyn_o_mite:
+
+    # The name of the datacenter.
+    #
+    # NOTE: Defaults to `localdc`.
+    datacenter: 'dc-01'
+
+    # The name of the rack.
+    #
+    # NOTE: Defaults to `localrack`.
+    rack: 'rack-01'
+
+    # The listening address and port used for incoming RESP requests.
+    #
+    # NOTE: Must be of the form `name:port` or `ip:port`.
+    listen: 0.0.0.0:8102
+
+    # The port that dynomite nodes use to inter-communicate and gossip.
+    dyn_listen: 0.0.0.0:8101
+
+    # An array of dynomite seeds.
+    #
+    # NOTE: Must be of the form `ip:port:rack:dc:token`.
+    dyn_seeds:
+        - 'dynomite-02:8101:rack-01:dc-01:1383429731'    
+        - 'dynomite-03:8101:rack-01:dc-01:1383429731'        
+        - 'dynomite-04:8101:rack-02:dc-01:1383429731'        
+        - 'dynomite-05:8101:rack-02:dc-01:1383429731'        
+        - 'dynomite-06:8101:rack-02:dc-01:1383429731'
+
+    # The method used for providing seeds.
+    dyn_seed_provider: 'simple_provider'
+
+    # The sleeping time in milliseconds at the end of a gossip round.
+    gos_interval: 30000
+
+    # The number of milliseconds before reads between Dynomite nodes timeout.
+    #
+    # NOTE: Defaults to `10000`.
+    dyn_read_timeout: 10000
+
+    # The number of milliseconds before writes between Dynomite nodes timeout.
+    #
+    # NOTE: Defaults to `10000`.
+    dyn_write_timeout: 10000
+
+    # The hash algorithm to use when hashing a key.
+    #
+    # NOTE: Defaults to `murmur`.
+    hash: 'murmur'
+
+    # The timeout value in ms that we wait for to establish a connection to
+    # the server or receive a response from a server.
+    #
+    # NOTE: Defaults to `5000`.
+    timeout: 5000
+
+    # The maximum length to which the queue of pending connections may grow.
+    # NOTE: Defaults to `512`.
+    backlog: 512
+
+    # The maximum number of client connections.
+    # client_connections:
+
+    # An integer value that controls if a server pool speaks redis `0` or
+    # memcached `1` or other protocol.
+    #
+    # NOTE: Defaults to `0`.
+    data_store: 0
+
+    # A boolean value that controls if dynomite should preconnect to all the
+    # servers in this pool on process start.
+    #
+    # NOTE: Defaults to `true`.
+    preconnect: true
+
+    # A boolean value that controls if server should be ejected temporarily when
+    # it fails consecutively server_failure_limit times.
+    #
+    # NOTE: Defaults to `true`.
+    auto_eject_hosts: true
+
+    # The timeout value in ms to wait for before retrying on a temporarily
+    # ejected server, when auto_eject_host is set to `true`.
+    #
+    # NOTE: Defaults to `10000`.
+    server_retry_timeout: 30000
+
+    # The number of consecutive failures on a server that would lead to it being
+    # temporarily ejected when auto_eject_host is set to true. 
+    #
+    # NOTE: Defaults to `2`.
+    server_failure_limit: 3
+
+    # A list of local server address, port and weight for this server pool.
+    #
+    # NOTE: Must be of the form `name:port:weight` or `ip:port:weight`. When
+    # DynomiteDB is run on Kubernetes then the backend container should be
+    # located in the same pod as the dynomite container.
+    servers:
+        - redis-01:22122:1
+
+    # The token range owned by a node.
+    tokens: '1383429731'
+
+    # Encrypted communication.
+    #
+    # NOTE: Must be one of `none`, `rack`, `datacenter`, or `all`.
+    secure_server_option: 'all'
+
+    # The SSL public certificate file used by Dynomite for secure node-to-node
+    # communication.
+    #
+    # NOTE: Defaults to `/etc/dynomitedb/dynomite/dynomite.pem`.
+    pem_key_file: '/etc/dynomitedb/dynomite.pem'
+
+    # Specify environment of a node.
+    #
+    # NOTE: Currently supports `aws` and `network` (for physical datacenter).
+    env: 'network'
+
+    # Read consistency level.
+    #
+    # NOTE: Must be one of `dc_one` or `dc_quorum`.
+    read_consistency: 'dc_quorum'
+
+    # Write consistency level.
+    #
+    # NOTE: Must be one of `dc_one` or `dc_quorum`.
+    write_consistency: 'dc_one'
+
+    # The address and port number for the REST endpoint and for accessing
+    # statistics.
+    stats_listen: 0.0.0.0:22222
+
+    # Size of mbuf chunk in bytes.
+    #
+    # NOTE: Defaults to `16384` bytes.
+    mbuf_size: 16384
+
+    # Max number of messages to allocate.
+    #
+    # NOTE: Defaults to `200000`.
+    max_msgs: 200000
